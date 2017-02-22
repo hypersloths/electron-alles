@@ -1,0 +1,47 @@
+{
+  "name": "electron-alles",
+  "version": "1.0.0",
+  "main": "main.js",
+  "repository": "https://github.com/hypersloths/electron-alles.git",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^1.4.15",
+    "electron-builder": "^13.11.1"
+  },
+  "dependencies": {
+    "request": "^2.79.0"
+  },
+  "build": {
+    "productName": "Hyperledger Rocket Payments",
+    "appId": "com.rocket-payments",
+    "app-category-type": "public.app-category.business",
+    "asar": false,
+    "mac": {
+      "title": "Hyperledger Rocket Payments",
+      "target": "dmg"
+    },
+    "dmg": {
+      "icon": "build/icon.icns",
+      "icon-size": 128,
+      "content": [
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 130,
+          "y": 220,
+          "type": "file",
+          "path": "computed path to artifact, do not specify it - will be overwritten"
+        }
+      ]
+    },
+    "win": {
+      "title": "Hyperledger Rocket Payments",
+      "msi": false,
+      "target": "squirrel"
+    }
+  }
+}
