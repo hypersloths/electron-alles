@@ -1,6 +1,8 @@
 # Rocket Payments Application - Blockchain seruced payments
 ## adaptation of blockchain
 Blockchain, eventhough popular in mainstream literature, remains a tool used and understood by very few. 
+With its system of distributed trust it is however the safest way to protect financial transactions.
+Therefore adaptation of the technique in financial transacctions is a question that should be solved.
 
 ## private keys and losing them
 One of the greatest challenges of introducing blockchain is private key handling by its users. 
