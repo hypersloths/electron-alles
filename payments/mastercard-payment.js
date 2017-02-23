@@ -1,68 +1,75 @@
-var body =
-{
-    "PaymentRequestV3": {
-        "LocalDate": "0817",
-        "LocalTime": "150149",
-        "TransactionReference": "1092058832510050082",
-        "SenderName": {
-            "First": "Test",
-            "Middle": "T",
-            "Last": "Test"
-        },
-        "SenderPhone": "7031234567",
-        "SenderDateOfBirth": "08061977",
-        "SenderAddress": {
-            "Line1": "123 Main Street",
-            "Line2": "5A",
-            "City": "Arlington",
-            "CountrySubdivision": "VA",
-            "PostalCode": "22207",
-            "Country": "USA"
-        },
-        "FundingCard": {
-            "AccountNumber": "5184680470000023"
-        },
-        "FundingSource": "03",
-        "AdditionalMessage": "Test",
-        "ParticipationId": "Test",
-        "LanguageIdentification": "Tes",
-        "LanguageData": "Test",
-        "ReceivingCard": {
-            "AccountNumber": "5184680430000006"
-        },
-        "ReceiverName": {
-            "Middle": "B",
-            "Last": "Lopez"
-        },
-        "ReceiverAddress": {
-            "Line1": "Pueblo Street",
-            "Line2": "PO BOX 12",
-            "City": "El PASO",
-            "CountrySubdivision": "TX",
-            "PostalCode": "79906",
-            "Country": "USA"
-        },
-        "ReceiverPhone": "1800639426",
-        "ReceiverDateOfBirth": "06211977",
-        "ReceivingAmount": {
-            "Value": "843",
-            "Currency": "840"
-        },
-        "ICA": "009674",
-        "ProcessorId": "9000000442",
-        "RoutingAndTransitNumber": "990442082",
-        "CardAcceptor": {
-            "Name": "THE BEST BANK",
-            "City": "ANYTOWN",
-            "State": "MO",
-            "PostalCode": "99999-1234",
-            "Country": "USA"
-        },
-        "TransactionDesc": "P2P",
-        "MerchantId": "123456"
-    }
-};
+var ref = 1092058832510050082;
+// var fundingNumber = 5184680470000023
+// var amount = 678
+var bodyFunc = function (ref,fundingNumber, amount) {
 
+    return {
+        "PaymentRequestV3": {
+            "LocalDate": "0817",
+            "LocalTime": "150149",
+            "TransactionReference": ref.toString(),
+            "SenderName": {
+                "First": "Test",
+                "Middle": "T",
+                "Last": "Test"
+            },
+            "SenderPhone": "7031234567",
+            "SenderDateOfBirth": "08061977",
+            "SenderAddress": {
+                "Line1": "123 Main Street",
+                "Line2": "5A",
+                "City": "Arlington",
+                "CountrySubdivision": "VA",
+                "PostalCode": "22207",
+                "Country": "USA"
+            },
+            "FundingCard": {
+                "AccountNumber": fundingNumber.toString()
+            },
+            "FundingSource": "03",
+            "AdditionalMessage": "Test",
+            "ParticipationId": "Test",
+            "LanguageIdentification": "Tes",
+            "LanguageData": "Test",
+            "ReceivingCard": {
+                "AccountNumber": "5184680430000006"
+            },
+            "ReceiverName": {
+                "Middle": "B",
+                "Last": "Lopez"
+            },
+            "ReceiverAddress": {
+                "Line1": "Pueblo Street",
+                "Line2": "PO BOX 12",
+                "City": "El PASO",
+                "CountrySubdivision": "TX",
+                "PostalCode": "79906",
+                "Country": "USA"
+            },
+            "ReceiverPhone": "1800639426",
+            "ReceiverDateOfBirth": "06211977",
+            "ReceivingAmount": {
+                "Value": amount.toString(),
+                "Currency": "840"
+            },
+            "ICA": "009674",
+            "ProcessorId": "9000000442",
+            "RoutingAndTransitNumber": "990442082",
+            "CardAcceptor": {
+                "Name": "THE BEST BANK",
+                "City": "ANYTOWN",
+                "State": "MO",
+                "PostalCode": "99999-1234",
+                "Country": "USA"
+            },
+            "TransactionDesc": "P2P",
+            "MerchantId": "123456"
+        }
+    };
+
+
+
+}
 
 'use strict';
 
@@ -126,10 +133,14 @@ function startTransaction(body) {
  * @param req The request
  * @param res The response
  */
-function createPayment(inputbody, res) {
+function createPayment(fundingNumber, amount, res) {
     console.log('Starting the payment process');
 
-    const body = inputbody;
+
+
+    const body = bodyFunc(ref, fundingNumber, amount);
+    ref += ref;
+
 
     // First resolve security and sanction checks
     Promise.all([performSecurityChecks(body), screenSanction(body)])
@@ -153,8 +164,7 @@ function createPayment(inputbody, res) {
     console.log(data);
 
     // Send the response
-    res.status(200);
-    res.json(data);
+    res(null, data);
 })
 .catch((error) => {
         // Log the reject error
@@ -162,8 +172,7 @@ function createPayment(inputbody, res) {
     console.log(error);
 
     // Send the response
-    res.status(500);
-    res.json(error);
+    res(error);
 });
 })
 .catch((error) => {
@@ -172,7 +181,8 @@ function createPayment(inputbody, res) {
     console.log(error);
 
     // Send the response
-    res.status(500);
-    res.json(error);
+    res(error);
 });
 }
+
+module.exports = createPayment;

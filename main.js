@@ -1,5 +1,7 @@
 const electron = require('electron')
 // Module to control application life.
+
+const {ipcMain} =require('electron')
 const app = electron.app
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
@@ -7,6 +9,8 @@ const BrowserWindow = electron.BrowserWindow
 const path = require('path')
 const url = require('url')
 
+const MasterCard = require('./payments/mastercard-payment')
+const PayPal = require('./payments/paypal-payment')
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
@@ -54,3 +58,44 @@ app.on('activate', function () {
         createWindow()
     }
 })
+
+
+ipcMain.on('mastercardPayment', function(event, args){
+
+    MasterCard(args.fundingNumber, args.amount, function(err, res){
+
+        if(!err){
+            //TODO update blockchain
+        }
+        event.sender.send('mastercardPayed', {error:err, data:res})
+    })
+
+
+})
+
+ipcMain.on('paypalPayment', function(event, args){
+
+    PayPal(args.amount, function(result){
+
+        //TODO update blockchain
+
+        event.sender.send('paypalPayed', {data:result})
+    })
+
+
+})
+/*
+const {ipcRenderer} = require('electron')
+
+ipcRenderer.send('mastercardPayment', {amount:amount, fundingNumber:number})
+
+ipcRenderer.on('mastercardPayed', function(event, args){
+
+})
+
+ipcRenderer.send('paypalPayment', amount)
+
+ ipcRenderer.on('paypalPayed', function(event, args){
+
+ })
+*/
