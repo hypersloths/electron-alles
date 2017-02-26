@@ -129,6 +129,10 @@ brace-expansion@^1.0.0:
     balanced-match "^0.4.1"
     concat-map "0.0.1"
 
+buffer-crc32@^0.2.3:
+  version "0.2.13"
+  resolved "https://registry.yarnpkg.com/buffer-crc32/-/buffer-crc32-0.2.13.tgz#0d333e3f00eac50aa1454abd30ef8c2a5d9a7242"
+
 builtin-modules@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/builtin-modules/-/builtin-modules-1.1.1.tgz#270f076c5a72c02f5b65a47df94c5fe3a278892f"
@@ -863,6 +867,30 @@ map-obj@^1.0.0, map-obj@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"
 
+mastercard-api-core@1.4.x:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/mastercard-api-core/-/mastercard-api-core-1.4.1.tgz#e4de73d7bbeef37da3c0c67d705ae50eb379f86b"
+  dependencies:
+    node-forge "^0.6.39"
+
+mastercard-lost-stolen@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/mastercard-lost-stolen/-/mastercard-lost-stolen-1.0.3.tgz#d47ed38840df79880915a75e34942e94f79c142f"
+  dependencies:
+    mastercard-api-core "1.4.x"
+
+mastercard-moneysend@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/mastercard-moneysend/-/mastercard-moneysend-1.0.2.tgz#d74a9f829eecae0193b7668135eab25fe50b0838"
+  dependencies:
+    mastercard-api-core "1.4.x"
+
+mastercard-spendalerts@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/mastercard-spendalerts/-/mastercard-spendalerts-1.0.1.tgz#a5af7456a208061b6f1ca51461f79850a88fdad5"
+  dependencies:
+    mastercard-api-core "1.4.x"
+
 meow@^3.1.0:
   version "3.7.0"
   resolved "https://registry.yarnpkg.com/meow/-/meow-3.7.0.tgz#72cb668b425228290abbfa856892587308a801fb"
@@ -927,6 +955,10 @@ node-emoji@^1.5.1:
   resolved "https://registry.yarnpkg.com/node-emoji/-/node-emoji-1.5.1.tgz#fd918e412769bf8c448051238233840b2aff16a1"
   dependencies:
     string.prototype.codepointat "^0.2.0"
+
+node-forge@^0.6.39:
+  version "0.6.49"
+  resolved "https://registry.yarnpkg.com/node-forge/-/node-forge-0.6.49.tgz#f1ee95d5d74623938fe19d698aa5a26d54d2f60f"
 
 node-forge@^0.7.0:
   version "0.7.0"
@@ -1033,6 +1065,14 @@ path-type@^1.0.0:
     graceful-fs "^4.1.2"
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
+
+paypal-rest-sdk@^1.7.1:
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/paypal-rest-sdk/-/paypal-rest-sdk-1.7.1.tgz#1d73885cc775c38fb9b165d060a6c62138f400bd"
+  dependencies:
+    buffer-crc32 "^0.2.3"
+    semver "^5.0.3"
+    uuid "^2.0.1"
 
 pend@~1.2.0:
   version "1.2.0"
@@ -1462,6 +1502,10 @@ uuid-1345@^0.99.6:
   resolved "https://registry.yarnpkg.com/uuid-1345/-/uuid-1345-0.99.6.tgz#b1270ae015a7721c7adec6c46ec169c6098aed40"
   dependencies:
     macaddress "^0.2.7"
+
+uuid@^2.0.1:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-2.0.3.tgz#67e2e863797215530dff318e5bf9dcebfd47b21a"
 
 uuid@^3.0.0:
   version "3.0.1"

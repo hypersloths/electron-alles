@@ -1,1 +1,3 @@
 node_modules
+blockchain/secret.json
+payments/secret.json

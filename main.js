@@ -11,6 +11,7 @@ const url = require('url')
 
 const MasterCard = require('./payments/mastercard-payment')
 const PayPal = require('./payments/paypal-payment')
+const Blockchain = require('./blockchain/chainrequest')
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
@@ -64,10 +65,11 @@ ipcMain.on('mastercardPayment', function(event, args){
 
     MasterCard(args.fundingNumber, args.amount, function(err, res){
 
-        if(!err){
-            //TODO update blockchain
-        }
-        event.sender.send('mastercardPayed', {error:err, data:res})
+        if(err) console.log('mastercard error')
+        Blockchain.write('mastercard', args.amount,function(err, result) {
+
+            event.sender.send('mastercardPayed', {error: err, data: result})
+        })
     })
 
 
@@ -77,9 +79,13 @@ ipcMain.on('paypalPayment', function(event, args){
 
     PayPal(args.amount, function(result){
 
-        //TODO update blockchain
+        Blockchain.write('paypal', args.amount,function(err, result){
+            if(err) console.error('jerre')
 
-        event.sender.send('paypalPayed', {data:result})
+            event.sender.send('paypalPayed', {error:err,data:result})
+        })
+
+
     })
 
 
