@@ -94,12 +94,6 @@ function screenSanction(body) {
     return moneysendService.screenSanctions(requestData);
 }
 
-// Save the transaction in the blockchain
-function saveTransactionInBlockChain(body) {
-    // TODO: koppeling met Jerre zijn BlockChainCode
-    console.log('should now be saved in the blockchain');
-}
-
 // Start the transaction
 function startTransaction(body) {
     // Investigate if we still need this abstraction function
@@ -132,9 +126,6 @@ function createPayment(fundingNumber, amount, res) {
     // Log moneysendService.screenSanctions data
     console.log('moneysendService.screenSanctions response:');
     console.log(values[1]);
-
-    // Save the transaction in the blockchain
-    saveTransactionInBlockChain(body);
 
     // Start the Mastercard transaction. This should happen only if the transaction was successfully saved in the blockchain
     startTransaction(body)
