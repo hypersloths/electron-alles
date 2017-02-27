@@ -3,7 +3,6 @@
 /**
  * API documentation: https://developer.mastercard.com/documentation/lost-and-stolen-account-list
  */
-
 const lostStolen = require('mastercard-lost-stolen');
 const mastercardAPIProperties = require('./../resources/mastercardAPI-properties.json');
 

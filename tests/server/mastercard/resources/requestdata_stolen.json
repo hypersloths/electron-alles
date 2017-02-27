@@ -1,0 +1,31 @@
+{ "stolen" : {
+  "AccountInquiry": {
+    "AccountNumber": "5343434343434343"
+  }
+},"fraud" : {
+  "AccountInquiry": {
+    "AccountNumber": "5105105105105100"
+  }
+},"lost" : {
+  "AccountInquiry": {
+    "AccountNumber": "5222222222222200"
+  }
+},"capturecard" : {
+  "AccountInquiry": {
+    "AccountNumber": "5305305305305300"
+  }
+},"unauthorised_usage" : {
+  "AccountInquiry": {
+    "AccountNumber": "6011111111111117"
+  }
+},"counterfeit" : {
+  "AccountInquiry": {
+    "AccountNumber": "4444333322221111"
+  }
+},"false" : {
+  "AccountInquiry": {
+    "AccountNumber": "343434343434343"
+  }
+}
+
+}

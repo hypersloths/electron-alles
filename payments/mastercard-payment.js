@@ -3,71 +3,49 @@ var ref = 1092058832510050082;
 // var amount = 678
 var bodyFunc = function (ref,fundingNumber, amount) {
 
-    return {
-        "PaymentRequestV3": {
-            "LocalDate": "0817",
-            "LocalTime": "150149",
-            "TransactionReference": ref.toString(),
-            "SenderName": {
-                "First": "Test",
-                "Middle": "T",
-                "Last": "Test"
-            },
-            "SenderPhone": "7031234567",
-            "SenderDateOfBirth": "08061977",
-            "SenderAddress": {
-                "Line1": "123 Main Street",
-                "Line2": "5A",
-                "City": "Arlington",
-                "CountrySubdivision": "VA",
-                "PostalCode": "22207",
-                "Country": "USA"
-            },
-            "FundingCard": {
-                "AccountNumber": fundingNumber.toString()
-            },
-            "FundingSource": "03",
-            "AdditionalMessage": "Test",
-            "ParticipationId": "Test",
-            "LanguageIdentification": "Tes",
-            "LanguageData": "Test",
-            "ReceivingCard": {
-                "AccountNumber": "5184680430000006"
-            },
-            "ReceiverName": {
-                "Middle": "B",
-                "Last": "Lopez"
-            },
-            "ReceiverAddress": {
-                "Line1": "Pueblo Street",
-                "Line2": "PO BOX 12",
-                "City": "El PASO",
-                "CountrySubdivision": "TX",
-                "PostalCode": "79906",
-                "Country": "USA"
-            },
-            "ReceiverPhone": "1800639426",
-            "ReceiverDateOfBirth": "06211977",
-            "ReceivingAmount": {
-                "Value": amount.toString(),
-                "Currency": "840"
-            },
-            "ICA": "009674",
-            "ProcessorId": "9000000442",
-            "RoutingAndTransitNumber": "990442082",
-            "CardAcceptor": {
-                "Name": "THE BEST BANK",
-                "City": "ANYTOWN",
-                "State": "MO",
-                "PostalCode": "99999-1234",
-                "Country": "USA"
-            },
-            "TransactionDesc": "P2P",
-            "MerchantId": "123456"
-        }
-    };
-
-
+    return  {
+             "PaymentRequestV3": {
+               "LocalDate": "0817",
+               "LocalTime": "150149",
+               "TransactionReference": ref.toString(),
+               "SenderName": {
+                 "First": "Test",
+                 "Middle": "T",
+                 "Last": "Test"
+               },
+               "SenderAddress": {
+                 "Line1": "123 Main Street",
+                 "Line2": "5A",
+                 "City": "Arlington",
+                 "CountrySubdivision": "VA",
+                 "PostalCode": "22207",
+                 "Country": "USA"
+               },
+               "FundingCard": {
+                 "AccountNumber": fundingNumber.toString()
+               },
+               "FundingSource": "03",
+               "ReceivingCard": {
+                 "AccountNumber": "5184680430000006"
+               },
+               "ReceivingAmount": {
+                 "Value": amount.toString(),
+                 "Currency": "840"
+               },
+               "ICA": "009674",
+               "ProcessorId": "9000000442",
+               "RoutingAndTransitNumber": "990442082",
+               "CardAcceptor": {
+                 "Name": "THE BEST BANK",
+                 "City": "ANYTOWN",
+                 "State": "MO",
+                 "PostalCode": "99999-1234",
+                 "Country": "USA"
+               },
+               "TransactionDesc": "P2P",
+               "MerchantId": "123456"
+             }
+           };
 
 }
 
@@ -139,7 +117,9 @@ function createPayment(fundingNumber, amount, res) {
 
 
     const body = bodyFunc(ref, fundingNumber, amount);
-    ref += ref;
+    ref +=  Math.floor(
+                   1000000000000000000 + Math.random() *
+                   900000000000000000);
 
 
     // First resolve security and sanction checks

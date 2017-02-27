@@ -1,0 +1,44 @@
+ {
+  "PaymentRequestV3": {
+    "LocalDate": "0817",
+    "LocalTime": "150149",
+    "TransactionReference": "1092058832510050082",
+    "SenderName": {
+      "First": "Test",
+      "Middle": "T",
+      "Last": "Test"
+    },
+    "SenderAddress": {
+      "Line1": "123 Main Street",
+      "Line2": "5A",
+      "City": "Arlington",
+      "CountrySubdivision": "VA",
+      "PostalCode": "22207",
+      "Country": "USA"
+    },
+    "FundingCard": {
+      "AccountNumber": "5184680470000023"
+    },
+    "FundingSource": "03",
+    "ReceivingCard": {
+      "AccountNumber": "5184680430000006"
+    },
+    "ReceivingAmount": {
+      "Value": "843",
+      "Currency": "840"
+    },
+    "ICA": "009674",
+    "ProcessorId": "9000000442",
+    "RoutingAndTransitNumber": "990442082",
+    "CardAcceptor": {
+      "Name": "THE BEST BANK",
+      "City": "ANYTOWN",
+      "State": "MO",
+      "PostalCode": "99999-1234",
+      "Country": "USA"
+    },
+    "TransactionDesc": "P2P",
+    "MerchantId": "123456"
+  }
+}
+
