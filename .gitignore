@@ -1,3 +1,6 @@
 node_modules
 blockchain/secret.json
 payments/secret.json
+.idea
+Hypersloths-1487270348-sandbox.p12
+dist

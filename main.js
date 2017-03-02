@@ -27,6 +27,8 @@ function createWindow () {
         slashes: true
     }))
 
+    //mainWindow.webContents.openDevTools()
+
 
 
     // Emitted when the window is closed.
@@ -58,13 +60,15 @@ app.on('activate', function () {
     if (mainWindow === null) {
         createWindow()
     }
+
 })
 
 
 ipcMain.on('mastercardPayment', function(event, args){
+    console.log('paymentssss', args)
 
     MasterCard(args.fundingNumber, args.amount, function(err, res){
-
+        console.log('all good')
         if(err) console.log('mastercard error')
         Blockchain.write('mastercard', args.amount,function(err, result) {
 

@@ -14,7 +14,7 @@ var invocationBody = function(key, value){
 
 var invoke = function(key, value, cb){
 
-    query(key, value, function(err, data){
+    query(key,  function(err, data){
         if(err) console.error('jerre');
 
         data.push(value)

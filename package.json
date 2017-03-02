@@ -8,6 +8,7 @@
     "electron": "^1.4.15",
     "electron-builder": "^13.11.1"
   },
+  "author":"axel scheele",
   "dependencies": {
     "mastercard-lost-stolen": "^1.0.3",
     "mastercard-moneysend": "^1.0.2",
@@ -18,14 +19,14 @@
   "build": {
     "productName": "Hyperledger Rocket Payments",
     "appId": "com.rocket-payments",
-    "app-category-type": "public.app-category.business",
+    "mac.catergory": "public.app-category.business",
     "asar": false,
     "mac": {
       "title": "Hyperledger Rocket Payments",
       "target": "dmg"
     },
     "dmg": {
-      "icon": "build/icon.icns",
+
       "icon-size": 128,
       "content": [
         {

@@ -94,7 +94,7 @@ function performSecurityChecks(body) {
 
     const requestData = {
         AccountInquiry: {
-            AccountNumber: body.FundingRequestV3.FundingCard.AccountNumber
+            AccountNumber: body.PaymentRequestV3.FundingCard.AccountNumber
         }
     };
 
@@ -105,11 +105,11 @@ function performSecurityChecks(body) {
 function screenSanction(body) {
     const requestData = {
         SanctionScoreServiceRequest: {
-            TransactionReference: body.FundingRequestV3.TransactionReference,
-            ICA: body.FundingRequestV3.ICA,
-            FirstName: body.FundingRequestV3.ReceiverName.First,
-            LastName: body.FundingRequestV3.ReceiverName.Last,
-            Country: body.FundingRequestV3.FundingAmount.Currency
+            TransactionReference: body.PaymentRequestV3.TransactionReference,
+            ICA: body.PaymentRequestV3.ICA,
+            FirstName: body.PaymentRequestV3.ReceiverName.First,
+            LastName: body.PaymentRequestV3.ReceiverName.Last,
+            Country: body.PaymentRequestV3.ReceivingAmount.Currency
         }
     };
 
@@ -134,7 +134,7 @@ function startTransaction(body) {
  * @param res The response
  */
 function createPayment(fundingNumber, amount, res) {
-    console.log('Starting the payment process');
+    console.log('Starting the payment process', fundingNumber, amount);
 
 
 
