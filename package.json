@@ -19,34 +19,15 @@
   "build": {
     "productName": "Hyperledger Rocket Payments",
     "appId": "com.rocket-payments",
-    "mac.catergory": "public.app-category.business",
+ 
     "asar": false,
-    "mac": {
-      "title": "Hyperledger Rocket Payments",
-      "target": "dmg"
-    },
-    "dmg": {
+    
+ 
+      
+      "nsis":{
+       "oneClick":true
 
-      "icon-size": 128,
-      "content": [
-        {
-          "x": 410,
-          "y": 220,
-          "type": "link",
-          "path": "/Applications"
-        },
-        {
-          "x": 130,
-          "y": 220,
-          "type": "file",
-          "path": "computed path to artifact, do not specify it - will be overwritten"
-        }
-      ]
-    },
-    "win": {
-      "title": "Hyperledger Rocket Payments",
-      "msi": false,
-      "target": "squirrel"
-    }
+      }
+    
   }
 }
